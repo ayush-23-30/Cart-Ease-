@@ -1,21 +1,21 @@
 
 import './App.css'
 
-import Cart from './component/Cart'
 import { Outlet } from 'react-router-dom'
 import MainHeader from './component/MainHeader'
-// import CartOpener from './component/CartOpener'
-
+import SideBar from './component/SideBar'
 
 function App() {
   
 
   return (
- <div className="">
- 
+ <div className="flex flex-col">
   <MainHeader></MainHeader>
- 
-    <Outlet></Outlet>
+  <SideBar></SideBar>
+
+  <Outlet></Outlet>
+
+
   
  </div>
   )
