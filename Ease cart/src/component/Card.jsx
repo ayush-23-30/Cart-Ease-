@@ -11,6 +11,8 @@ function Card() {
  {
     products.map((prod , index) =>{
       return (
+        
+
         <div className=" flex  flex-col tracking-tighter leading-[8px] ml-3 md:h-60 md:w-48  shadow-lg mt-3  w-40 h-56">
 
         <div className="">
@@ -31,6 +33,7 @@ function Card() {
         </div>
 
       </div>
+       
       )
     })
 }
