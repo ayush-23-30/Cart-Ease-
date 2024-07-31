@@ -1,13 +1,11 @@
 import { createContext, useContext, useReducer } from "react";
 import faker from "faker";
-import { CartReducer } from "./Reducers";
+import { cartReducer, productReducer } from "./Reducers";
 
+const Cart = createContext();
+faker.seed(99);
 
-const CartData = createContext();
-
-const Context = (({children})=>{
-  // creating fake data of products from Node Faker npm 
-
+const Context = ({ children }) => {
   const products = [...Array(20)].map(() => ({
     id: faker.datatype.uuid(),
     name: faker.commerce.productName(),
@@ -18,22 +16,29 @@ const Context = (({children})=>{
     ratings: faker.random.arrayElement([1, 2, 3, 4, 5]),
   }));
 
- const [state, dispatch ] =  useReducer(CartReducer , {
-  products : products, 
-  cart : []
- }) // an  alternative to useState. accepts reducer type (state , action) => newState , and returns the current state paired with dispatch method ( it is mainly use with REDUX ) 
+  const [state, dispatch] = useReducer(cartReducer, {
+    products: products,
+    cart: [],
+  });
 
+  const [productState, productDispatch] = useReducer(productReducer, {
+    byStock: false,
+    byFastDelivery: false,
+    byRating: 0,
+    searchQuery: "",
+  });
 
-return <CartData.Provider value={{state , dispatch}}>
-  {children} 
-</CartData.Provider>
-})
+  console.log(productState);
+
+  return (
+    <Cart.Provider value={{ state, dispatch, productState, productDispatch }}>
+      {children}
+    </Cart.Provider>
+  );
+};
+
+export const CartState = () => {
+  return useContext(Cart);
+};
 
 export default Context;
-
-export const CartState =  ()=>{
- return  useContext(CartData)
-}
-
-// children is the whole app 
-// id  from data base 
