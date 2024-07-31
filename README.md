@@ -171,3 +171,12 @@ Make your changes and commit them: git commit -m 'Add some feature'.
 Push to the branch: git push origin feature-name.
 Submit a pull request.`.
 
+## Screen Shot 
+You can find items according to your own Flirt likes rating price 
+![Screenshot 2024-07-31 122024](https://github.com/user-attachments/assets/a6ed86f3-bcb6-4fa2-b955-f9fe5a0b4925)
+
+Cart page in which you can update or deleted live 
+![Screenshot 2024-07-31 122123](https://github.com/user-attachments/assets/29540532-9759-4cab-b84b-9013204fc823)
+
+
+
